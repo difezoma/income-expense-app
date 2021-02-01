@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "income-expense-app-7396d": {
+      "hosting": {
+        "incomesExpensesApp": [
+          "income-expense-app-7396d"
+        ]
+      }
+    }
+  }
+}
