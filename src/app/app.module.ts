@@ -11,48 +11,33 @@ import { StoreModule } from '@ngrx/store';
 import { appReducers } from './app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { ReactiveFormsModule } from '@angular/forms';
-
 import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { IncomeExpenseComponent } from './income-expense/income-expense.component';
-import { StatisticComponent } from './income-expense/statistic/statistic.component';
-import { DetailComponent } from './income-expense/detail/detail.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { environment } from 'src/environments/environment';
-import { OrderIncomeExpensePipe } from './pipes/order-income-expense.pipe';
 
 
+import { AuthModule } from './auth/auth.module';
+import { SharedModule } from './shared/shared.module';
+import { IncomeExpense } from './models/income-expense.model';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    DashboardComponent,
-    IncomeExpenseComponent,
-    StatisticComponent,
-    DetailComponent,
-    FooterComponent,
-    NavbarComponent,
-    SidebarComponent,
-    OrderIncomeExpensePipe
   ],
   imports: [
     BrowserModule,
+    AuthModule,
+
     AppRoutingModule,
-    ReactiveFormsModule,
+
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    ChartsModule,
+
+    
     StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states

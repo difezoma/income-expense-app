@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.uiSubscription = this.store.select('ui').subscribe( ui => {
       this.loading = ui.isLoading;
-      console.log('Loading subs');
     });
   }
 
@@ -44,13 +43,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     console.log(this.loginForm.value);
 
     this.store.dispatch(isLoading());
-
-    /* Swal.fire({
-      title: 'Loading!',
-      didOpen: () => {
-        Swal.showLoading();
-      }
-    }); */
 
     const { email, password } = this.loginForm.value;
 
